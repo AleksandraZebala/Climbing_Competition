@@ -8,27 +8,28 @@
     <title>Wyniki zawodów</title>
     <link rel='stylesheet' href='css/style.css'>
 </head>
-<body>
-    
-<div id='ranking'>
-    <p>Aktualny ranking</p>
-    <table id='rankingTable'></table>
-</div>
+<body> 
+    <div id='ranking'>
+        <p>Aktualny ranking</p>
+        <table id='rankingTable'></table>
+    </div>
 
-<div id='routes'>
-    <p>Drogi konkursowe</p>
-</div>
+    <div id='leftSide'>
+        <div id='routes'>
+            <p>Drogi konkursowe</p>
+        </div>
 
-<div id='form'>
-    <p>Dodaj nowe przejście</p>
-    <form>
-        Numer zawodnika: <br>
-        <input type="number" name="id"><br>
-        Numer drogi: <br>
-        <input type="number" name="points"><br>
-        <button type="submit" id="sendFetch">Dodaj</button>
-    </form>
-</div>
+        <div id='form'>
+            <p>Dodaj nowe przejście</p>
+            <form>
+                Numer zawodnika: <br>
+                <input type="number" name="id"><br>
+                Numer drogi: <br>
+                <input type="number" name="points"><br>
+                <button type="submit" id="sendFetch">Dodaj</button>
+            </form>
+        </div>
+    </div>
 <script src="js/ranking.js"></script>
 <script src="js/routes.js"></script>
 <script src="js/form.js"></script>

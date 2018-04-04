@@ -13,7 +13,7 @@ async function showRoutes(routes){
     const routesDiv = document.getElementById('routes');
     
     const table = document.createElement('table');
-    addHeaderToTable(table);
+    addRoutesHeader(table);
     routes.forEach(route => addRouteToTable(route, table));
     routesDiv.appendChild(table);
 }

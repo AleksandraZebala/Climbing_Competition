@@ -26,11 +26,17 @@ async function showRanking(ranking){
 async function addScoreToTable(contestant, table){
 
     const tableRow = document.createElement('tr');
+    //tableRow.class = "rankingTableRow";
     
     const pointsData = document.createElement('td');
     const nameData = document.createElement('td');
     const numberData = document.createElement('td');
     const detailsData = document.createElement('td');
+    
+    /*pointsData.class = "rankingTableData";
+    nameData.class = "rankingTableData";
+    numberData.class = "rankingTableData";
+    detailsData.class = "rankingTableData";*/
     
     const details = document.createElement('p');
     
