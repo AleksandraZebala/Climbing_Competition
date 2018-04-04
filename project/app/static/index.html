@@ -6,20 +6,31 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wyniki zawodów</title>
+    <link rel='stylesheet' href='css/style.css'>
 </head>
 <body>
     
-<div id='box'></div>
-    
-<form action="/contestants" method="POST">
-    <div id="alert"></div>
-    Id: <br>
-    <input type="number" name="id"><br><br>
-    Punkty: <br>
-    <input type="number" name="points"><br><br>
-    <button type="submit" id="sendFetch">Wyślij wiadomość fetchem</button>
-</form>
-    
-<script src="js/app.js"></script>
+<div id='ranking'>
+    <p>Aktualny ranking</p>
+    <table id='rankingTable'></table>
+</div>
+
+<div id='routes'>
+    <p>Drogi konkursowe</p>
+</div>
+
+<div id='form'>
+    <p>Dodaj nowe przejście</p>
+    <form>
+        Numer zawodnika: <br>
+        <input type="number" name="id"><br>
+        Numer drogi: <br>
+        <input type="number" name="points"><br>
+        <button type="submit" id="sendFetch">Dodaj</button>
+    </form>
+</div>
+<script src="js/ranking.js"></script>
+<script src="js/routes.js"></script>
+<script src="js/form.js"></script>
 </body>
 </html>

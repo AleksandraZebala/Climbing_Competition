@@ -29,26 +29,27 @@ class Route{
 //-----------------------------------------------------
 
 const routes = [
-    new Route(0, "Superek", 1),
+    new Route(0, "Banał", 1),
     new Route(1, "Krwawa Pięść", 5),
     new Route(2, "Masakracja", 8),
-    new Route(3, "Banał", 2),
+    new Route(3, "Drabina", 2),
     new Route(4, "Fajna droga", 4)
 ]
 
 const contestants = [
     new Contestant(0, "Ola", "Zębala"),
-    new Contestant(1, "Kamil", "Sięka")
+    new Contestant(1, "Kamil", "Sięka"),
+    new Contestant(2, "Jonatan", "Zazula"),
+    new Contestant(3, "Bartek", "Ziemski"),
+    new Contestant(4, "Ewa", "Jakubowska"),
+    new Contestant(5, "Kamil", "Gacek")
 ]
 
 //--------------------------------------------------------
 
 function getRanking(){
     const ranking = [...contestants];
-    console.log("PRZED "+contestants[0].name);
-    ranking.sort(x => x.points);
-    console.log("PO "+contestants[0].name);
-    console.log("RANKING "+ranking[0].name);
+    ranking.sort(x => - x.points);
     return ranking;
 }
 
@@ -78,11 +79,14 @@ app.get('/ranking', (req, res) => {
     res.json(getRanking());
 });
 
-app.post('/contestants', (req, res) => {
-    const {id, points} = req.body;
-    console.log(contestants[id].name);
-    contestants[id].addRoute(new Route(0, "Haha", 3));
+app.post('/ranking', (req, res) => {
+    const {contestant_id, route_id} = req.body;
+    contestants[contestant_id].addRoute(routes[route_id]);
     res.json(getRanking());
+});
+
+app.get('/routes', (req, res) => {
+    res.json(routes);
 });
 
 app.get('/contestants/:id', (req, res) => {
