@@ -61,16 +61,26 @@ async function addScoreToTable(contestant, table){
 async function addDetails(tableRow, contestant){
     
     const ul = document.createElement('ul');
-    contestant.routes.forEach(route => {
-        
-        const p = document.createElement('p');
-        p.innerText = route.name + " (" + route.points + " pkt.)";
     
+    if(contestant.routes.length == 0){ 
+        const p = document.createElement('p');
+        p.innerText = "Brak dróg";
         const li = document.createElement('li');
         li.appendChild(p);
-    
         ul.appendChild(li);
-    });
+    }
+    
+    else {
+        contestant.routes.forEach(route => {
+            const p = document.createElement('p');
+            p.innerText = route.name + " (" + route.points + " pkt.)";
+
+            const li = document.createElement('li');
+            li.appendChild(p);
+
+            ul.appendChild(li);
+        });
+    }
     
     ul.style.display = "none";
     
@@ -78,6 +88,7 @@ async function addDetails(tableRow, contestant){
 }
 
 async function showDetails(event){
+    
     const p = this.querySelector('p');
     const ul = this.querySelector('ul');
     

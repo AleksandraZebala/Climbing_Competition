@@ -15,6 +15,10 @@ ul, li, p {
     padding:0;
 }
 
+ul {
+    list-style-type: none;
+}
+
 td {
     padding: 7px;
 }
