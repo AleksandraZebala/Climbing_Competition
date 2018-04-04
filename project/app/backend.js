@@ -26,7 +26,7 @@ class Route{
     }
 }
 
-//-----------------------------------------------------
+//-------------------------------------------
 
 const routes = [
     new Route(0, "Banał", 1),
@@ -45,7 +45,8 @@ const contestants = [
     new Contestant(5, "Kamil", "Gacek")
 ]
 
-//--------------------------------------------------------
+//--------------------------------------------
+
 
 function getRanking(){
     const ranking = [...contestants];
@@ -57,7 +58,7 @@ function getContestant(id){
     return contestants[id];
 }
 
-//--------------------------------------------------------
+//--------------------------------------------
 
 const express = require('express');
 const path = require("path");
@@ -85,14 +86,18 @@ app.post('/ranking', (req, res) => {
     res.json(getRanking());
 });
 
-app.get('/routes', (req, res) => {
-    res.json(routes);
+app.get('/contestants', (req, res) => {
+    res.json(contestants);
 });
 
 app.get('/contestants/:id', (req, res) => {
     res.json(getContestant(req.params.id));
 });
+
+app.get('/routes', (req, res) => {
+    res.json(routes);
+});
  
 app.listen(3000, () => {
-    console.log('Serwer gotowy!');
+    console.log('Server listening at localhost:3000');
 });
